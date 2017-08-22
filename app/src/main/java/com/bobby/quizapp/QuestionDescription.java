@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 public class QuestionDescription extends AppCompatActivity {
     EditText userAnswer;
+    private TextView questionText;
     private String correctAnswer = DefaultList.getQuestionList().get(DefaultList.getIndex())
             .getAnswer().toLowerCase().trim();
     private TextView answerText;
@@ -22,7 +23,7 @@ public class QuestionDescription extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_description);
 
-        TextView questionText = (TextView) findViewById(R.id.questionText);
+        this.questionText = (TextView) findViewById(R.id.questionText);
         this.answerText = (TextView) findViewById(R.id.answerText);
         this.userAnswer = (EditText) findViewById(R.id.userAnswer);
         this.answerText.setVisibility(View.INVISIBLE);
@@ -37,6 +38,7 @@ public class QuestionDescription extends AppCompatActivity {
         if (this.correctAnswer.equals(checkAnswer)) {
             Toast.makeText(getApplicationContext(), "Correct Answer", Toast.LENGTH_LONG).show();
             this.answerText.setVisibility(View.VISIBLE);
+            this.questionText.setText("Correct! \n\nAnswer: " + this.correctAnswer);
 
             handler.postDelayed(new Runnable() {
                 @Override

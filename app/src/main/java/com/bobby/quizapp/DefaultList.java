@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public abstract class DefaultList {
     private static int index;
     private static int progressCounter = 0;
+
     private static QuizBlock q1 = new QuizBlock("Question 1", "aa");
     private static QuizBlock q2 = new QuizBlock("Question 2", "aa");
     private static QuizBlock q3 = new QuizBlock("Question 3", "aa");
