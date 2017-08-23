@@ -40,7 +40,7 @@ public class QuestionDescription extends AppCompatActivity {
         String checkAnswer = userAnswer.getText().toString().toLowerCase().trim();
 
         if (this.correctAnswer.equals(checkAnswer)) {
-            Toast.makeText(getApplicationContext(), "Correct Answer", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Correct Answer", Toast.LENGTH_SHORT).show();
             this.answerText.setVisibility(View.VISIBLE);
             this.questionText.setText("Correct! \n\nAnswer: " + this.correctAnswer);
             this.submit.setVisibility(View.GONE);
@@ -54,7 +54,7 @@ public class QuestionDescription extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                 }
-            }, 3000);
+            }, 1000);
         }
 
         else if (checkAnswer.equals("")){

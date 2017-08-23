@@ -25,15 +25,15 @@ public abstract class DefaultList {
 
     private static ArrayList<QuizBlock> questionList = new ArrayList(){{
         add(q1);
-        add(q2);
-        add(q3);
-        add(q4);
-        add(q5);
-        add(q6);
-        add(q7);
-        add(q8);
-        add(q9);
-        add(q10);
+//        add(q2);
+//        add(q3);
+//        add(q4);
+//        add(q5);
+//        add(q6);
+//        add(q7);
+//        add(q8);
+//        add(q9);
+//        add(q10);
     }};
 
     private static int quizProgress = questionList.size();
