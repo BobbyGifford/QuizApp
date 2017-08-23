@@ -1,21 +1,24 @@
 package com.bobby.quizapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class QuestionDescription extends AppCompatActivity {
-    EditText userAnswer;
+    private EditText userAnswer;
     private TextView questionText;
     private String correctAnswer = DefaultList.getQuestionList().get(DefaultList.getIndex())
             .getAnswer().toLowerCase().trim();
     private TextView answerText;
+    private Button submit;
     private final Handler handler = new Handler();
 
     @Override
@@ -26,6 +29,7 @@ public class QuestionDescription extends AppCompatActivity {
         this.questionText = (TextView) findViewById(R.id.questionText);
         this.answerText = (TextView) findViewById(R.id.answerText);
         this.userAnswer = (EditText) findViewById(R.id.userAnswer);
+        this.submit = (Button) findViewById(R.id.submitAnswer);
         this.answerText.setVisibility(View.INVISIBLE);
 
         questionText.setText(DefaultList.getQuestionList().get(DefaultList.getIndex()).getQuestion());
@@ -39,6 +43,8 @@ public class QuestionDescription extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Correct Answer", Toast.LENGTH_LONG).show();
             this.answerText.setVisibility(View.VISIBLE);
             this.questionText.setText("Correct! \n\nAnswer: " + this.correctAnswer);
+            this.submit.setVisibility(View.GONE);
+            this.userAnswer.setVisibility(View.GONE);
 
             handler.postDelayed(new Runnable() {
                 @Override
@@ -48,7 +54,7 @@ public class QuestionDescription extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                 }
-            }, 5000);
+            }, 3000);
         }
 
         else if (checkAnswer.equals("")){

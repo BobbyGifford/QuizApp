@@ -4,13 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.bobby.quizapp.QuestionDescription">
+    tools:context="com.bobby.quizapp.QuestionDescription"
+    android:background="@drawable/quiz_background2"
+    >
 
     <TextView
         android:id="@+id/questionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -25,6 +28,7 @@
         android:layout_marginBottom="32dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
+        android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
@@ -37,23 +41,31 @@
         android:id="@+id/userAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="51dp"
         android:ems="10"
         android:hint="Answer Here"
         android:inputType="textPersonName"
-        app:layout_constraintHorizontal_bias="0.502"
+        android:textColor="#FFFFFF"
+        android:textColorHint="@android:color/white"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questionText" />
 
     <Button
         android:id="@+id/submitAnswer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rounded_button"
         android:onClick="onSubmitAnswer"
         android:text="Submit Answer"
-        app:layout_constraintRight_toRightOf="parent"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="0dp"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userAnswer" />
 </android.support.constraint.ConstraintLayout>
