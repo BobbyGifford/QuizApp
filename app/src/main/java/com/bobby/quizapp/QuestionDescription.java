@@ -17,7 +17,7 @@ public class QuestionDescription extends AppCompatActivity {
     private TextView questionText;
     private String correctAnswer = DefaultList.getQuestionList().get(DefaultList.getIndex())
             .getAnswer().toLowerCase().trim();
-    private TextView answerText;
+    private String displayAnswer = DefaultList.getQuestionList().get(DefaultList.getIndex()).getAnswer();
     private Button submit;
     private final Handler handler = new Handler();
 
@@ -27,13 +27,10 @@ public class QuestionDescription extends AppCompatActivity {
         setContentView(R.layout.activity_question_description);
 
         this.questionText = (TextView) findViewById(R.id.questionText);
-        this.answerText = (TextView) findViewById(R.id.answerText);
         this.userAnswer = (EditText) findViewById(R.id.userAnswer);
         this.submit = (Button) findViewById(R.id.submitAnswer);
-        this.answerText.setVisibility(View.INVISIBLE);
 
         questionText.setText(DefaultList.getQuestionList().get(DefaultList.getIndex()).getQuestion());
-        answerText.setText("Correct! \n\nAnswer: " + this.correctAnswer);
     }
 
     public void onSubmitAnswer(View view){
@@ -41,8 +38,7 @@ public class QuestionDescription extends AppCompatActivity {
 
         if (this.correctAnswer.equals(checkAnswer)) {
             Toast.makeText(getApplicationContext(), "Correct Answer", Toast.LENGTH_SHORT).show();
-            this.answerText.setVisibility(View.VISIBLE);
-            this.questionText.setText("Correct! \n\nAnswer: " + this.correctAnswer);
+            this.questionText.setText("Correct!\n\nAnswer: " + this.displayAnswer);
             this.submit.setVisibility(View.GONE);
             this.userAnswer.setVisibility(View.GONE);
 

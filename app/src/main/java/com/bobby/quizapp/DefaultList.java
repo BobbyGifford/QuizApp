@@ -6,63 +6,39 @@ import java.util.ArrayList;
  * Created by bobby on 8/18/17.
  */
 
-public abstract class DefaultList {
+abstract class DefaultList {
     private static int index;
     private static int progressCounter = 0;
+    private static int progressMax;
+    private static String difficulty;
+    private static boolean norBool = false;
+    private static boolean hardBool = false;
+    private static boolean finished =false;
 
-    private static QuizBlock q1 = new QuizBlock("Question 1", "aa");
-    private static QuizBlock q2 = new QuizBlock("Question 2", "aa");
-    private static QuizBlock q3 = new QuizBlock("Question 3", "aa");
-    private static QuizBlock q4 = new QuizBlock("Question 4", "aa");
-    private static QuizBlock q5 = new QuizBlock("Question 5", "aa");
-    private static QuizBlock q6 = new QuizBlock("Question 6", "aa");
-    private static QuizBlock q7 = new QuizBlock("Question 7", "aa");
-    private static QuizBlock q8 = new QuizBlock("Question 8", "aa");
-    private static QuizBlock q9 = new QuizBlock("Question 9", "aa");
-    private static QuizBlock q10 = new QuizBlock("Question 10", "aa");
-
-
-
-    private static ArrayList<QuizBlock> questionList = new ArrayList(){{
-        add(q1);
-//        add(q2);
-//        add(q3);
-//        add(q4);
-//        add(q5);
-//        add(q6);
-//        add(q7);
-//        add(q8);
-//        add(q9);
-//        add(q10);
+    private static ArrayList<QuizBlock> questionList = new ArrayList<QuizBlock>(){{
     }};
 
-    private static int quizProgress = questionList.size();
-
-    public static ArrayList<QuizBlock> getQuestionList() {
+    static ArrayList<QuizBlock> getQuestionList() {
         return questionList;
     }
 
-    public static int getIndex() {
+    public static void setQuestionList(ArrayList<QuizBlock> questionList) {
+        DefaultList.questionList = questionList;
+    }
+
+    static int getIndex() {
         return index;
     }
 
-    public static void setIndex(int index) {
+    static void setIndex(int index) {
         DefaultList.index = index;
     }
 
-    public static void questionAnswered(){
+    static void questionAnswered(){
         questionList.remove(index);
     }
 
-    public static int getQuizProgress() {
-        return quizProgress;
-    }
-
-    public static void setQuizProgress(int quizProgress) {
-        DefaultList.quizProgress = quizProgress;
-    }
-
-    public static int getProgressCounter() {
+    static int getProgressCounter() {
         return progressCounter;
     }
 
@@ -70,7 +46,47 @@ public abstract class DefaultList {
         DefaultList.progressCounter = progressCounter;
     }
 
-    public static void progressCounterIncrement(){
+    static void progressCounterIncrement(){
         progressCounter++;
+    }
+
+    public static int getProgressMax() {
+        return progressMax;
+    }
+
+    public static void setProgressMax(int progressMax) {
+        DefaultList.progressMax = progressMax;
+    }
+
+    public static String getDifficulty() {
+        return difficulty;
+    }
+
+    public static void setDifficulty(String difficulty) {
+        DefaultList.difficulty = difficulty;
+    }
+
+    public static boolean isNorBool() {
+        return norBool;
+    }
+
+    public static void setNorBool(boolean norBool) {
+        DefaultList.norBool = norBool;
+    }
+
+    public static boolean isHardBool() {
+        return hardBool;
+    }
+
+    public static void setHardBool(boolean hardBool) {
+        DefaultList.hardBool = hardBool;
+    }
+
+    public static boolean isFinished() {
+        return finished;
+    }
+
+    public static void setFinished(boolean finished) {
+        DefaultList.finished = finished;
     }
 }

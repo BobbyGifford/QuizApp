@@ -1,6 +1,7 @@
 package com.bobby.quizapp;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,22 +20,20 @@ public class MainActivity extends AppCompatActivity {
     private ListView listView;
     private TextView quizProgress;
     private ProgressBar progressBar;
-    private TextView prizeMessage;
-    private Button toPrize;
     private TextView introMessage;
     private ArrayAdapter<QuizBlock> arrayAdapter;
-    private int progressBarLength = DefaultList.getQuizProgress();
+    private int progressBarLength = DefaultList.getProgressMax();
     private int currentProgress = DefaultList.getProgressCounter();
+    private final Handler handler = new Handler();
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         this.listView = (ListView)findViewById(R.id.questionList);
         this.quizProgress = (TextView) findViewById(R.id.quizProgress);
-        this.prizeMessage = (TextView) findViewById(R.id.prizeMessage);
-        this.toPrize = (Button) findViewById(R.id.toPrize);
         this.introMessage = (TextView) findViewById(R.id.intro);
 
         this.progressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -42,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         this.progressBar.setProgress(this.currentProgress);
 
         quizProgress.setText(DefaultList.getProgressCounter() +
-                "/" + Integer.toString(DefaultList.getQuizProgress()));
+                "/" + Integer.toString(this.progressBarLength));
 
         this.arrayAdapter = new ArrayAdapter<QuizBlock>(this, android.R.layout.simple_list_item_1,
                 DefaultList.getQuestionList());
@@ -58,9 +57,28 @@ public class MainActivity extends AppCompatActivity {
         });
 
         if (this.currentProgress == this.progressBarLength){
-            this.prizeMessage.setVisibility(View.VISIBLE);
-            this.toPrize.setVisibility(View.VISIBLE);
-            this.introMessage.setVisibility(View.GONE);
+            DefaultList.setProgressCounter(0);
+            this.introMessage.setText("Completed " + DefaultList.getDifficulty() + " difficulty!");
+
+            if (DefaultList.getDifficulty().equals("normal")){
+                DefaultList.setNorBool(true);
+            }
+
+            if (DefaultList.getDifficulty().equals("hard")){
+                DefaultList.setHardBool(true);
+            }
+
+            if (DefaultList.isNorBool() && DefaultList.isHardBool()){
+                DefaultList.setFinished(true);
+            }
+
+            this.handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent intent = new Intent(getApplicationContext(), SelectScreen.class);
+                    startActivity(intent);
+                }
+            }, 3000);
         }
     }
 }

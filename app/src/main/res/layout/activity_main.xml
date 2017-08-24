@@ -9,34 +9,6 @@
     tools:layout_editor_absoluteX="0dp">
 
     <TextView
-        android:id="@+id/prizeMessage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Congradulations!"
-        android:textSize="30sp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/questionList"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionList"
-        app:layout_constraintVertical_bias="0.684" />
-
-    <Button
-        android:id="@+id/toPrize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_button"
-        android:textColor="#FFFFFF"
-        android:text="Go To Prize"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.378"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.501" />
-
-    <TextView
         android:id="@+id/quizProgress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
