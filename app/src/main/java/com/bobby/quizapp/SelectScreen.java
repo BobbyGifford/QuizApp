@@ -16,21 +16,22 @@ public class SelectScreen extends AppCompatActivity {
     private TextView finishedMessage;
 
     private QuizBlock q1 = new QuizBlock("Who won Super Bowl 50?", "Denver Broncos");
-    private QuizBlock q2 = new QuizBlock("Who won that last Super Bowl?", "New England Patriots");
+    private QuizBlock q2 = new QuizBlock("Who won the last Super Bowl?", "New England Patriots");
     private QuizBlock q3 = new QuizBlock("How many teams are in the NFL?", "32");
     private QuizBlock q4 = new QuizBlock("How many players are on an NFL roster?", "53");
     private QuizBlock q5 = new QuizBlock("Who was the #1 overall pick in the 2017 NFL Draft?",
             "Myles Garrett");
 
     private ArrayList<QuizBlock> hardList = new ArrayList<QuizBlock>(){{
-//        add(q1);
-//        add(q2);
-        add(q3);
+        add(q1);
+        add(q2);
     }};
 
     private ArrayList<QuizBlock> normalList = new ArrayList<QuizBlock>(){{
+        add(q3);
         add(q4);
-//        add(q5);
+        add(q5);
+
     }};
 
     @Override
